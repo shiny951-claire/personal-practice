@@ -85,5 +85,56 @@
       <td>내용</td>
     </tr>
    </table>
+   
+   <!-- 첫번 row 표머리말
+    2,3줄 표본문
+    마지막 줄 표 바닥글
+    
+    머릿글->제목데이타
+    2,3,4->1칸 제목 2,3,4,5칸 데이타-->
+   <table border="1">
+    <thead >
+      <!-- 1줄 제목데이타 -->
+      <!-- tr>th*5>{제목$} -->
+      <tr>
+        <th>제목1</th>
+        <th>제목2</th>
+        <th>제목3</th>
+        <th>제목4</th>
+        <th>제목5</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- tr*2>th{제목}+td*4{내용$@2} -->
+      <tr>
+        <th>제목</th>
+        <td>내용2</td>
+        <td>내용3</td>
+        <td>내용4</td>
+        <td>내용5</td>
+      </tr>
+      <tr>
+        <th>제목</th>
+        <td>내용2</td>
+        <td>내용3</td>
+        <td>내용4</td>
+        <td>내용5</td>
+      </tr>
+      
+
+    </tbody>
+    <tfoot>
+      <!-- tr>th{제목}+td*4{내용} -->
+      <tr>
+        <th>제목</th>
+        <td>내용</td>
+        <td>내용</td>
+        <td>내용</td>
+        <td>내용</td>
+      </tr>
+    </tfoot>
+
+   </table>
+
 </body>
 </html>
