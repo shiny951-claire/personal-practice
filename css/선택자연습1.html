@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자연습</title>
+</head>
+<body>
+  <!--
+  emmet
+  태그
+  p
+  div
+  box ->잘못된 표기 태그가 아니기때문.
+
+  태그#아이디명
+  div#wrap, #wrap
+
+  태그.클래스명
+  span.box    
+  -->
+  <!-- #wrap <-아이디(wrap)를 부여할만큼 유의미한 구조-->
+  <div id="wrap">
+    <!-- header+div.container+footer -->
+    <header></header>
+
+    <div class="container">
+      <!-- section#section$*3>p.title+div.box>h2+p*2>lorem10 -->
+      <section id="section1">
+        <!-- p.title+div.box -->
+        <p class="title">section1</p>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2>신상품</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Reiciendis mollitia voluptatem ea rem iusto consequuntur, et dicta aut!</p>
+        </div>
+      </section>
+
+      <section id="section2">
+        <!-- p.title+div.box -->
+        <p class="title">section2</p>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2>신상품</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Reiciendis mollitia voluptatem ea rem iusto consequuntur, et dicta aut!</p>
+        </div>
+        <p>section2 마지막 자식</p>
+      </section>
+
+      <section id="section3">
+        <!-- p.title+div.box -->
+        <p class="title">section3</p>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2>신상품</h2>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Reiciendis mollitia voluptatem ea rem iusto consequuntur, et dicta aut!</p>
+        </div>
+      </section>
+
+    </div>
+    <!--//.container-->
+
+    <footer></footer>
+
+  </div>
+  <!--//#wrap-->
+
+
+</body>
+</html>
