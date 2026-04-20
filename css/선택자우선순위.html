@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자우선순위</title>
+  <style>
+    /* p{color:red} */
+    /* 문서내의 모든 div에 적용 */
+    /* 
+    우선순위
+    - 조상의 값을 상속
+    - 동일요소에 동일속성 다른값 ->뒤에 코딩된 값
+    - 조상 동일속성, 본인동일속성-> 본인속성값
+    - 우선순위값이 높은 선택자가 우선
+    - 태그 1, 클래스 10, 아이디 100, 인라인선택자 1000
+     */
+    .box p{color:darkblue !important} /*클래스+자식 11*/
+    div{color:red} /*조상태그 1*/
+    .title{color:#0f0} /*클래스 10*/
+    p{color:#0ff} /*본인태그 1*/
+    div{color:#00f} /*조상태그 1*/
+  </style>
+</head>
+<body>
+  <!-- p>lorem -->
+  <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod, voluptatibus repellat, veritatis dignissimos ducimus perferendis quas sunt quis commodi, est suscipit. Eveniet illo sit, numquam neque itaque voluptatum labore aut.</p> 
+  <!-- div.box>p+p.title -->
+  <div class="box">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, dicta?</p>
+    <p class="title" style="color:#86f;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, esse.</p>
+  </div>
+
+</body>
+</html>

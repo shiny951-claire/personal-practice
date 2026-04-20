@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>선택자연습</title>
+  <style>
+    /* 서체지정
+    font-family: 글꼴이름1,글꼴이름2...,브라우저사용서체 
+    font-family: 영어서체,한글서체...,브라우저사용서체 */
+    body{
+      font-family: "맑은 고딕", serif;
+      /* 기본사이즈font-size: 1em; */
+      /* 기본사이즈 font-size: 16px; */
+      /* font-size: 14px; */
+      font-size: 0.875em; /*14px*/
+      /* font-size: 87.5%;*/
+    }
+    .box p{
+      /* font-size: 0.875em;부모의 글자크기 14*0.875px  */
+      /* font-size: 14px  */
+      font-size: 0.875rem /*rem=root글자크기16px*/
+    }
+    /* reset */
+    h1, h2, h3, h4, h5, h6{
+      font-size: 1rem;
+      font-weight: normal;
+    }
+    /*
+    section .title {}->후손
+    section > .title {}->자식
+    */
+    section > .title {
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: #86f;
+      font-family: Impact, "돋움체", sans-serif
+    }
+    /* font-style */
+    .italic{
+      font-style: italic;
+      color: royalblue;
+      font-weight: bold;
+    }
+    
+    /* 소문자로 표시
+     */
+     section > .title{
+      font-variant: small-caps;
+     }
+
+     /* 
+     블록레벨의 요소내의 문단의 줄간격 
+     요소와 요소 사이의 간격은 여백으로 처리*/
+     #section2{
+      line-height: 1.7;
+      /* line-height: 50px; */
+     }
+     body{
+      /* font-size: 0.875em;
+      font-style: normal;
+      font-weight: normal;
+      font-family: "궁서체", serif;
+      line-height: 1.5; */
+      /* font: normal normal normal 0.875em/ 1.5 "궁서체",serif */
+      font: 0.875em/ 1.5 "궁서체",serif /*크기/ 줄간격 서체*/
+     }
+
+  </style>
+
+</head>
+<body>
+  
+  <div id="wrap">
+    <!-- header+div.container+footer -->
+    <header></header>
+
+    <div class="container">
+      <!-- section#section$*3>p.title+div.box>h2+p*2>lorem10 -->
+      <section id="section1">
+        <!-- p.title+div.box -->
+        <div class="title">section1</div>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2 class="title">신상품</h2>
+          <p>Lorem <span class="italic">ipsum</span> dolor sit, amet consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius aliquam laboriosam est dignissimos ratione excepturi repellat, dolorum beatae qui dolore iusto sit, nemo nesciunt quia voluptatem, recusandae aliquid? Deserunt, commodi?</p>
+        </div>
+      </section>
+      <hr>
+      <section id="section2">
+        <!-- p.title+div.box -->
+        <p class="title">section2</p>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2 class="title">엠디추천</h2>
+          <p>Lorem ipsum dolor <span class="italic">sit, amet</span> consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium numquam mollitia dignissimos, esse optio eveniet repellat temporibus provident suscipit quae, veritatis eos est itaque earum facilis quaerat ducimus maiores. Neque?</p>
+        </div>
+        <p>section2 마지막 자식</p>
+      </section>
+      <hr>
+      <section id="section3">
+        <!-- p.title+div.box -->
+        <p class="title">section3</p>
+        <div class="box">
+          <!-- h2+p*2>lorem10 -->
+          <h2 class="title">베스트 상품</h2>
+          <p>Lorem <span class="italic">ipsum dolor</span> sit, amet consectetur adipisicing elit. Quos, aperiam!</p>
+          <p>Reiciendis mollitia voluptatem ea rem iusto consequuntur, et dicta aut!</p>
+        </div>
+      </section>
+
+    </div>
+    <!--//.container-->
+
+    <footer></footer>
+
+  </div>
+  <!--//#wrap-->
+
+
+</body>
+</html>
