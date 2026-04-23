@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>overflow</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    /*요소(태그) 크기결정=>박스모델
+    박스모델
+    <태그>내용<태그>내용</태그></태그>
+    1. 블럭::after
+      줄바꿈
+      너비와 높이를 지정
+      너비는 부모의 컨텐츠영역만큼
+
+    2. inline:
+      줄바꿈없음
+      너비와 높이를 지정하지않음
+    3. inline-block
+      줄바꿈없음
+      너비와 높이를 지정
+    */ 
+    /* 요소크기 계산법
+    -수평크기
+    좌마진+좌보더+좌패딩+content+우패딩+우보더+우마진 
+    -수직크기
+    상마진+상보더+상패딩+content+하패딩+하보더+하마진*/
+    .box{
+      background-color: #ccc;
+      width: 300px;
+      height: 150px;
+      /* 안쪽여백, 하좌우 모두 20px */
+      padding: 20px;
+      /* padding을 지정해도 .box 요소의 크기변화x */
+      box-sizing: border-box;
+    }
+    body{
+      margin:50px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box">연습</div>
+  <!-- .overflow-exam -->
+  <h1>자식의 크기가 부모의 크기보다 클 때</h1>
+  <div class="overflow-exam">
+    <!-- .box.box$*4>lorem15 -->
+    <div class="box box1"><div class="child">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Atque blanditiis sapiente quae, aperiam recusandae quas.</div></div>
+    <div class="box box2">Dignaque sit.</div>
+    <div class="box box3">Porro, rem itaque! Quis exerculpa hic cum, porro perspiciatis soluta magni consequuntur, animi libero modi possimus eaq</div>
+    <div class="box box4">Saepe nobis deserunt harum velit, reiciendis praesentium! Ipsa omnis aliquam sapiente autem sequi officiis porro.</div>
+    
+  </div>
+  <style>
+    .box{
+      width: 300px;
+      height: 100px;
+      border: 1px solid black;
+
+    }
+    .overflow-exam .box{
+      height: 100px;
+      /* height: auto; */
+      border: 1px solid black;
+      margin: 50px 0 10px 0;
+    }
+    .box1{overflow: auto;}
+    .box2{overflow: scroll;}
+    .box3{overflow: visible;}
+    .box4{overflow: hidden;}
+    
+  </style>
+  <div class="box box5">
+    <img src="../html/asset/logo.png" alt="">
+  </div>
+  <style>
+    .box5{
+      overflow-y:hidden;
+    }
+  </style>
+</body>
+</html>
