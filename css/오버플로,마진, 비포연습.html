@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>오버플로, 마진 비포연습</title>
+  <style>
+    /* reset */
+    *{margin: 0; padding: 0;}
+    body{margin: 30px;}
+
+    div::before{
+      content:"box";
+      display: block;
+    }
+    .box{
+      margin:20px;
+      border: 10px dashed #000;
+      background-color: #ccc;
+      padding: 16px;
+      height: 150px;
+      
+    }
+    .box1{overflow: visible;}
+    .box2{overflow: hidden;}
+    .box3{overflow: auto;}
+  </style>
+</head>
+<body>
+  <!-- .box.box$*3>lorem40 -->
+  <div class="box box1">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In inventore eaque aperiam quasi modi veni ipsam aspernatur fcss/background-color.htmluga dolorem, non, iure itaque quo ue pariatur? Unde deleniti udantium. Dignissimos aperiam enim nam. Aliquam id est enim harum aliquid officiis voluptatem voluptatibus deserunt neque distinctio, ipsum harum aut.</div>
+  <div class="box box2">Neque dignissimos asperiores ad odio, officia at laudantium. Dignissimos aperiam enim nam. Aliquam id est enim harum aliquid officiis voluptatem voluptatibus deserunt neque pariatur? Unde deleniti udantium. Dignissimos aperiam enim nam. Aliquam id est enim harum aliquid officiis voluptatem voluptatibus deserunt neque pariatur? Unde deleniti exercitationem repellat odit omnis?</div>
+  <div class="box box3">Neque dignissimos asperiores ad odio, officia at laudantium. Dignissimos aperiam enim nam. Aliquam id est enim harum aliquid officiis voluptatem voluptatibus deserunt neque pariatur? Unde deleniti udantium. Dignissimos aperiam enim nam. Aliquam id est enim harum aliquid officiis voluptatem voluptatibus deserunt neque pariatur? Unde deleniti exercitationem repellat odit omnis?</div>
+</html>
