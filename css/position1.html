@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position1</title>
+  <style>
+    *{margin: 0;padding: 0; box-sizing: border-box;}
+    .wrap{
+      width: 65%;
+      margin: 0 auto;
+      background-color: #ccc;
+      padding: 30px;
+      border: 10px dashed #999;
+      position: relative;/*3번째기준요소위해 포지션잡아줌*/
+      min-height: 2000px;
+    }
+    .parent{
+      padding: 10px;
+    }
+    .parent:nth-child(1){
+      background-color: #f86;
+      position: static;
+      left: 150px; top: 150px;
+      /* static은 변화없음 */
+    }
+    .parent:nth-child(2){
+      background-color: #6f8;
+      position: relative;
+      left: 150px; top: 150px;
+      /* relative는 원래위치를 기준
+      형제, 부모에 영향없음<-normal flow 
+      relative를 지정하고 변동을 줘도 다른 것들이 변하지 않음*/
+      /* 레이어 기능 */
+    }
+    .parent:nth-child(3){
+      background-color: #86f;
+      position:absolute;
+      /* 기준을 가까운 조상(static제외)기준*/
+      /* 형제, 부모의 레이아웃에 영향 줌-normal flow 벗어남 */
+      /* 부모자식 관계를 잃음
+      부모가 해당요소의 높이를 인식하지 못함 =>그래서 부모의 너비를 알지못함 콘텐츠영역만큼의 너비*/
+      /* 레이어 가능 */
+      /* left,right, top, bottom을 지정하지 않으면 원래 자기위치 */
+      left: 0; top: 0;
+    }
+    .parent:nth-child(4){
+      background-color: #cf8;
+      /* 기준을 브라우저*/
+      /* 형제, 부모의 레이아웃에 영향 줌-normal flow 벗어남 */
+      /* 부모자식 관계를 잃음
+      부모가 해당요소의 높이를 인식하지 못함 =>그래서 부모의 너비를 알지못함 콘텐츠영역만큼의 너비*/
+      /* 레이어 가능 */
+      /* left,right, top, bottom을 지정하지 않으면 원래 자기위치 */
+      position:fixed;
+      left: 0; top: 0;
+    }
+     .parent:nth-child(5){
+       background-color: #c8f;
+      
+     }
+     .parent .child{
+        width: 50px; height: 50px;
+        padding: 10px;
+        position: absolute;
+        /* normal flow에서 벗어남
+        부모가 해당 요소들의 높이를 인식하지 못함
+        본인은 부모의 콘텐츠 영역으로 가져오지 못함
+        자신의 콘텐츠 크기만큼의 너비로 줄어들음
+        기준요소? 가까운 조상부터 position이 설정된 요소(단, static제외) */
+        left: 0; top: 0;
+    }
+    .parent .child:nth-child(1){
+      background-color: #fff;
+      
+    }
+    .parent .child:nth-child(2){
+      background-color: #0dd;
+
+    }
+    .box{
+      background-color: #dd0;
+    }
+    /* 요소의 위치 설정 법 지정 position 
+    static:차곡차곡
+    relative:
+    */
+    .parent:nth-child(5) .child{
+      position: static;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- .parent*5>.child*2>.box>{box$} -->
+    <div class="parent">
+      <div class="child">
+        <div class="box">box1</div>
+      </div>
+      <div class="child">
+        <div class="box">box2</div>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">
+        <div class="box">box1</div>
+      </div>
+      <div class="child">
+        <div class="box">box2</div>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">
+        <div class="box">box1</div>
+      </div>
+      <div class="child">
+        <div class="box">box2</div>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">
+        <div class="box">box1</div>
+      </div>
+      <div class="child">
+        <div class="box">box2</div>
+      </div>
+    </div>
+    <div class="parent">
+      <div class="child">
+        <div class="box">box1</div>
+      </div>
+      <div class="child">
+        <div class="box">box2</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
