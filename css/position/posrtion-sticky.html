@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>position-sticky</title>
+  <style>
+    *{margin: 0;padding: 0;}
+    .section:nth-child(odd){
+      background-color: #68f;
+    }
+    .section:nth-child(even){
+      background-color: #f86;
+    }
+    .section-title,
+    .content-wrap{
+      width: 80%;
+      box-sizing: border-box;
+      margin:0 auto;
+    }
+    /* 해당 section이 보여지는 동안 section-title이 브라우저 상단에 고정
+    
+    누가? section-title
+    배치법: position:fixed
+    위치: 상단 고정
+          top:0;
+    기준: 브라우저
+          브라우저 위치의 기준
+          조건: 섹션이 보이는 동안
+               부모요소가 브라우저와의 위치가 어떻게?
+               left/right/top/bottom
+    */
+    .section{
+      overflow: hidden;
+      /* 부모가 overflow: visible을 제외하고 overflow가 선언되어있으면 자식요소는 sticky 적용 안됨. */
+    }
+    .section .section-title{
+      background-color: #fff;
+      /* height: 50px; */
+      /* 한줄 텍스트를 수직 가운데로 오기 */
+      /* line-height: 50px; */
+      font-size: 1.5em;
+      padding:1em 2em;/*글자크기에 따라 수직크기가 달라짐*/
+      position:sticky;
+      top:50%;
+      /* 부모 요소의 브라우저 위치가 만나는 지점이자, 
+      본인요소가 처음에 위치할 지점 */
+    }
+    .section .content-wrap{
+      background-color: beige;
+      height: 110vh;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- .section.section$*4>p.section-title+.content-wrap -->
+    <div class="section section1">
+      <p class="section-title">section1</p>
+      <div class="content-wrap"></div>
+    </div>
+    <div class="section section2">
+      <p class="section-title">section2</p>
+      <div class="content-wrap"></div>
+    </div>
+    <div class="section section3">
+      <p class="section-title">section3</p>
+      <div class="content-wrap"></div>
+    </div>
+    <div class="section section4">
+      <p class="section-title">section4</p>
+      <div class="content-wrap"></div>
+    </div>
+    
+  </div>
+</body>
+</html>

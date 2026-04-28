@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>background-attachment 2</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    .container-wrap{
+      /* margin: 0 50px; */
+      margin: 0;
+      background-color: #ccc;
+    }
+    .container-wrap > section{
+      /* 부모요소의 콘텐츠 영역을 다 쓰겠다 */
+      box-sizing: border-box;
+      width: 100%;
+      padding: 1em;
+      height: 100vh;
+      /* margin: 0 -50px; */
+      /* background-image: url(images/bg.jpg); */
+      background-image: url(images/sun.png);
+      /* background-image: url(images/flower.png); */
+      background-repeat: no-repeat;
+      background-color: #ac9;
+    }
+    .container-wrap >.section1{
+      background-color:rgba(255,136,102,0.2);
+      background-position: 0 0;
+      /* background-image: none; */
+    }
+    .container-wrap >.section2{
+      background-color:rgba(102, 136, 255, 0.2);
+      /* background-position: right bottom; */
+      background-position: center;
+      background-attachment: fixed;
+      /* 
+      fixed
+      배경이미지의 기준이 요소가 아니라 브라우저가 됨
+      background-position: right bottom;
+      배경이미지가 오른쪽 아래를 기준으로 고정됨
+      */
+    }
+    .container-wrap >.section3{
+      background-color:rgba(102, 255, 136, 0.2);
+      background-position: center center;
+      /* background-image: none; */
+    }
+    </style>
+</head>
+<body>
+  <div class="container-wrap">
+    <!-- section.section$*3>p.title>{section$} -->
+    <section class="section1">
+      <p class="title">section1</p>
+    </section>
+    <section class="section2">
+      <p class="title">section2</p>
+    </section>
+    <section class="section3">
+      <p class="title">section3</p>
+    </section>
+  </div>
+</body>
+</html>

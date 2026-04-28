@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{margin:0; padding: 0;}
+    body{margin: 100px;}
+
+    .box{
+      /* 글자색 마젠타 */
+      color:magenta;
+      /* 글자크기 html요소기준 3배 */
+      font-size: 3rem;
+      /* 글자 진하게 */
+      font-weight: bold;
+      /* 자간 3px */
+      letter-spacing: 3px;
+      /* 배경색을 f68 */
+      background-color: #6f8;
+      /* 해당요소의 인라인요소를 요소의 가운데 정렬 */
+      /* 문단정렬 가운데 정렬 */
+      text-align: center;
+    }
+    .box:hover{
+      /* 글자색 마젠타 */
+      color:cyan;
+      /* 글자크기 html요소기준 3배 */
+      font-size: 5rem;
+      /* 글자 진하게 */
+      font-weight: 400;
+      /* 자간 3px */
+      letter-spacing: 10px;
+      /* 배경색을 f68 */
+      background-color: #f68;
+      /* 해당요소의 인라인요소를 요소의 가운데 정렬 */
+      /* 문단정렬 가운데 정렬 */
+      text-align: right;
+      /* transition -수치값을 가지고 있는것이 자연스럽게 변화함*/
+      transition: font-size o.3s;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">SALE</div>
+</body>
+</html>
