@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>목록css</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    body{margin: 30px;}
+    li{background-color: #ccc;    }
+    /* .exam1 ol, .exam1 ul {}
+    .exam1후손 ol, .exam1 후손 ul*/
+
+    /* ol.exam1, ul.exam1 {} ol중 클래스exam1, ul중 클래스exam2 */
+    ol.exam1, ul.exam1{
+      border: 1px solid #f00;
+      padding-left:3em;
+      /* ol/ul블릿 글머리표를 화면에 표시되느네 문제일 때는 padding-left확인 */
+      overflow: hidden;
+      list-style: none;}
+
+
+  </style>
+</head>
+<body>
+  <!-- ul>li*3>{menu$} -->
+  <ul class="exam1">
+    <li>menu1</li>
+    <li>menu2</li>
+    <li>menu3</li>
+  </ul>
+  <ol class="exam1">
+    <li>menu1</li>
+    <li>menu2</li>
+    <li>menu3</li>
+  </ol>
+  <!-- .exam2>ol>li*3>{내용$} -->
+  <div class="exam2">
+    <ol>
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+    </ol>
+  </div><div class="exam2">
+    <ul>
+      <li>내용1</li>
+      <li>내용2</li>
+      <li>내용3</li>
+    </ul>
+  </div>
+  <style>
+    .exam2 ol, .exam2 ul{
+      list-style: none;
+    }
+    .exam2 li{
+      /* background-image: url(images/allow-right.png);
+      background-repeat: no-repeat;
+      padding-left: 24px;
+      background-size: 12px;
+      background-position: 0 6px; */
+
+      /*  단축표기법 background: #fff url() repeat center bottom/fixed; */
+      background: url(images/allow-right.png) no-repeat 0 6px/12px;
+    }
+  </style>
+</body>
+</html>
