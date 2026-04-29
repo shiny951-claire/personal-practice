@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배경이미지 활용</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<!-- 
+.noto-sans-<uniquifier> {
+  font-family: "Noto Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+} -->
+  <style>
+    *{margin: 0; padding:0;}
+    
+    .visual-section{
+      /* 100vw는 스크롤바를 합친 크기를 사용하는 것.
+      100%는 viewport를 전부 사용한다는 것 */
+      width: 100%;
+      height: 100vh;
+      background-color: #97948d;
+      background-image: url(../images/background-test.jpg);
+      background-repeat: no-repeat;
+      background-position: right top;
+      background-size: auto 200vh;
+      text-align: center;
+      align-content: center;
+      /* .visual-section::after{ 기준요소위해 */
+      position: relative;
+    }
+    .visual-section::after{
+      content:"";
+      display: block;
+      background-color: rgba(0, 255, 255, 0.5);
+      width: 100%; height: 100%;
+      position: absolute;
+      left: 0; top:0; 
+      z-index: 10;
+    }
+    .visual-section .text-wrap{
+      /* z-index 레이어 순서 관리-포지션, 트랜스폼 */
+      position: relative;
+      z-index: 20;
+      display: inline-block;
+      width: 50%;
+      padding: 1rem 2rem;
+      background-color: rgba(0, 0, 0, 0.5);
+      font-family: "Noto Sans", sans-serif;
+      color:#8bffb7;
+    }
+    .visual-section .text-wrap .title{
+      font-size: 4rem;
+      font-weight: 100;
+    }
+    .visual-section .text-wrap .desc{
+      font-size: 1rem;
+      font-weight: 200;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="visual-section">
+      <!-- .text-wrap>p.title>lorem3^p.desc>lorem20 -->
+      <div class="text-wrap">
+        <p class="title">Lorem, ipsum dolor.</p>
+        <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. <br>Ducimus impedit, ea officiis at voluptas obcaecati eos fuga repellendus a tenetur?</p>
+      </div>
+   </div>
+  </div>
+</body>
+</html>

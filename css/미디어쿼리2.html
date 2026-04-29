@@ -48,6 +48,7 @@
     header .gnb-wrap{
       background-color: #cfc;
       margin-left: 50px;
+      display: block;
     }
    
     /* 블록레벨 li을 한줄로 */
@@ -70,8 +71,24 @@
 
     /* 3. m-nav-gnb를 1024이하에서만 표시 */
     header .m-nav-btn{
-      display: none;
+      /* display: none; */
     }
+    /* 장비특성에 맞는 display 적용 */
+    @media(min-width:1025px){
+      .mobile-only-block{
+        display: none;
+     }
+   }
+   /* 장비특성에 맞는 클래스명으로 display를 지정하는 것을 권장함ㄹ */
+    @media(max-width:1024px){
+      .pc-only{
+        display: none !important;
+      }
+      .mobile-only-block{
+        display: block;
+      }
+    }/*@media(max-width:1024px)*/
+
     </style>
 </head>
 <body>
@@ -79,7 +96,7 @@
     <header>
       <div class="inner">
         <h1 class="logo">Ran</h1>
-        <nav class="gnb-wrap">
+        <nav class="gnb-wrap pc-only">
           <ul class="gnb">
             <!-- li*5>a>{menu$} -->
             <li><a href="">menu1</a></li>
@@ -95,7 +112,7 @@
           <a href="">상단기능메뉴3</a>
         </div>
         <!-- //.util -->
-         <div class="m-nav-btn">
+         <div class="m-nav-btn mobile-only-block">
           <img src="images/menu.png" alt="모바일 사이드 메뉴 펼치기"></div>
       </div>
       <!-- //.inner -->
