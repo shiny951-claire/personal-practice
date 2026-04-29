@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>filter</title>
+  <style>
+    *{margin: 0; padding:0;}
+    .visual-section{
+      /* 100vw는 스크롤바를 합친 크기를 사용하는 것.
+      100%는 viewport를 전부 사용한다는 것 */
+      width: 100%;
+      height: 100vh;
+      background-color: #97948d;
+      /* 자식 inline-block을 가운데 정렬 */
+      text-align: right;
+      align-content: center;
+      /* .visual-section::after{ 기준요소위해 */
+      position: relative;
+    }
+    .img-wrap{
+      height: 100%;
+      display: inline-block;
+    }
+    .img-wrap img{
+      height: 100%;
+      display: block;
+      /* 살짝 있는 줄바꿈 마진없앰 */
+      filter: blur(5px) grayscale(100%);
+      
+    }
+
+  </style>
+</head>
+<body>
+  <div class="visual-section">
+    <div class="img-wrap">
+      <img src="../images/background-test.jpg" alt="">
+    </div>
+    <div class="text-wrap"></div>
+  </div>
+<!--//.visual-section -->
+</body>
+</html>
