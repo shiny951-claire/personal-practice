@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>table3 테두리 배경색</title>
+  <style>
+    *{margin: 0; padding: 0;}
+    body{margin: 50px;}
+    table{
+    margin-bottom: 20px;}
+    
+    table, tr, th, td{
+      box-sizing: border-box;
+    }
+
+    
+    
+    /* TAble1 */
+    .table1{
+      table-layout: auto;
+      border-collapse: collapse;
+      width: 100%;
+    }
+    .table1 th,
+    .table1 td{
+      border-bottom: 1px solid #000;
+    }
+    .table1 th:first-child,
+    .table1 td:first-child{
+      border-left: 1px solid #000;
+    }
+
+    .table1 th:last-child,
+    .table1 td:last-child{
+      border-right: 1px solid #000;
+    }
+    .table1 tr:first-child th{
+      background-color: #000;
+      color:#fff;
+      font-weight: bold;
+      font-size: 1rem;
+      padding:0.5rem 1rem;
+    }
+    .table1 td{
+      padding:0.5rem 1rem;
+    }
+
+    .table1 th:nth-child(1),
+    .table1 td:nth-child(1){
+     width: 150px;
+    }
+
+    /* table2 */
+    .table2{
+      table-layout: fixed;
+      border-collapse: collapse;
+      width: 100%;
+      border-top: 4px solid #000;
+    }
+    /* 선, 배경 */
+    .table2 th,
+    .table2 td{
+      border-bottom: 1px solid #000;
+      border-right: 1px solid #000;
+      padding:0.5rem 1rem;
+    }
+    .table2 th:last-child,
+    .table2 td:last-child{
+      border-right: none 0px;
+    }
+    
+    /* 크기 */
+     .table2 th:nth-child(1),
+     .table2 td:nth-child(1){
+      width: 150px;
+     }
+     .table2 th:nth-child(2),
+     .table2 td:nth-child(2){
+      width: 400px;
+     }
+
+     /* 수직정렬 */
+     .table2
+     tr:last-child
+     td:first-child{
+      vertical-align: top;
+     }
+     .table2
+     tr:last-child
+     td:nth-child(3){
+      vertical-align: middle;
+     }
+     .table2
+     tr:last-child
+     /* td:nth-child(4){ 
+     nth-last-child(1): 끝에서 부터 몇번째 자식*/
+     td:nth-last-child(1){
+      vertical-align: bottom;
+     }
+    </style>
+</head>
+<body>
+  <table class="table1">
+    <tr>
+      <th>제목1</th>
+      <th>제목2</th>
+      <th>제목3</th>
+      <th>제목4</th>
+    </tr>
+    <!-- tr*2>td*4>{내용$} -->
+    <tr>
+      <td>Lorem, ipsum.</td>
+      <td>Lorem, ipsum dolor.</td>
+      <td>내용3</td>
+      <td>내용4</td>
+    </tr>
+    <tr>
+      <td>내용1</td>
+      <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis ullam error repellendus, eligendi atque optio? Numquam nemo as sapiente obcaecati perspiciatis magni, enim repudiandae unde molestias.</td>
+      <td>내용3</td>
+      <td>내용4</td>
+    </tr>
+  </table>
+  <table class="table2">
+    <tr>
+      <th>제목1</th>
+      <th>제목2</th>
+      <th>제목3</th>
+      <th>제목4</th>
+    </tr>
+    <!-- tr*2>td*4>{내용$} -->
+    <tr>
+      <td>Lorem, ipsum dolor.</td>
+      <td>Lorem, ipsum.</td><!-- 가장 큰 너비를 빼고 나머지 균등분배-->
+      <td>내용3</td>
+      <td>내용4</td>
+    </tr>
+    <tr>
+      <td>내용1</td>
+      <td>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Odit autem asperiores nostrum labore quis? Possimus saepe esse, nihil sint iequi in ab numquam. Laboriosam, accusantium? Laboriosam modi praesentium magni!</td>
+      <td>내용3</td>
+      <td>내용4</td>
+    </tr>
+  </table>
+
+</body>
+</html>
