@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex3 flex container</title>
+  <link rel="stylesheet" href="../reset.css">
+  <!-- 플렉스 컨테이너 속성 실습을 위해서 아이템의 확장, 축소x -->
+  <!-- 
+  1. flex선언 : container
+  2. flex방향 결정 container
+  3. 아이템의 축소/ 확장 결정 item
+  4. 아이템의 크기 결정 item
+  5. 아이템의 줄바꿈 결정 container
+  6. 여백관리 gap-container margin-item
+  7. 정렬 container / item, margin
+  -->
+  <style>
+    .wrap{margin: 50px; }
+    .container{
+      background-color: #fcc;
+      
+        }
+    .item{
+      border: 1px solid #000;
+    }
+    .flex{
+      width: 300px;
+      height: 300px;
+      /* 1. flex선언 : 단이 될 요소의 부모*/
+      display: flex;
+      /* 2. flex방향 결정 container- 주축과 교차축 결정 */
+      flex-direction: row;
+      /*  5. flex-wrap 아이템의 줄바꿈 결정 container
+      플렉스 컨테이너 안에서 flex 아이템의 합이 플렉스 컨체이너보다 클 경우 줄바꿈
+       */
+       flex-wrap: wrap;
+      /* 6. 여백관리 gap-container margin-item 
+      gap, justify-content, align-content가 같이 부여되는 경우 원하는 대로 여백이 관리되지 않을 수 있다.*/
+      column-gap: 1rem;
+      row-gap: 10px;
+      /* 7. 정렬 container / item, margin */
+      /* 7-1 주축정렬 */
+      justify-content: start;
+      /* 7-2 교차축정렬 */
+      /* 7-2-1 여러줄의 정렬 lign-content*/
+      /* 7-2-2 한줄 정렬lign-item */
+      /* align-content: strech; 기본값. 플렉스 컨테이너의 크기에 맞춰서 늘어나라 */
+      align-content: space-evenly;
+    }
+    .flex .item{
+      /* 3. 아이템의 축소/ 확장 결정 item */
+      flex-grow: 0;
+      flex-shrink: 0;
+      /* 4. 아이템의 크기 결정 item */
+      width: 80px;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="container flex">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+      <div class="item">item4</div>
+    </div>
+  </div>
+</body>
+</html>
