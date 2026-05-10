@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>flex3 flex container</title>
+  <title>flex실습4-flex아이템의 확장</title>
   <link rel="stylesheet" href="../reset.css">
   <!-- 
   1. flex선언 : container
@@ -24,14 +24,40 @@
    #top_nav_box .top_category{background-color: dodgerblue;}
    #top_nav_box .top_mypage{background-color: purple;}
 
-    /* size */
-    /* #top_nav_box .top_logo{width: 100px;}
-    #top_nav_box .top_category{min-width: 600px; max-width: 700px;}
-    #top_nav_box .top_mypage{width: 150px;} */
-
+    
    /* flex */
-    .inner{}
-   #top_nav_box{}
+    .inner{
+      display: flex;
+      /* 2 row, 5 nowrap */
+    }
+   #top_nav_box{
+    /* flex item */
+    /* 3 grow0 shrink1  */
+    /* 4 */
+    width:100%;
+
+    display: flex;
+    /* 2 row, 5 nowrap */
+    /* 6 */
+    gap:20px;
+    /* 7 */
+    /* 주축정렬 */
+    /* 아이템사이만 컨테이너의 남은 공간을 동일하게 나누어 여백으로 사용하고 싶어요 */
+    /* justify-content: start; */
+   }
+   #top_nav_box>div{
+    /* flex item */
+    /* 3 grow0 shrink1 */
+    /* 4 flex-basis:auto*/
+    text-align: center;
+   }
+   /* size */
+    #top_nav_box .top_logo{width: 100px;}
+    #top_nav_box .top_category{flex-grow: 1; }/*남아있는 공간 전부를 사용할게요*/
+    #top_nav_box .top_mypage{width: 150px;}
+
+   
+
    #top_nav_box .top_logo{}
    #top_nav_box .top_category{}
    #top_nav_box .top_mypage{}

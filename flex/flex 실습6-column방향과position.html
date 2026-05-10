@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>flex3 flex container</title>
+  <title>fle실습6-column방향과position</title>
   <link rel="stylesheet" href="../reset.css">
   <!-- 
   1. flex선언 : container
@@ -25,13 +25,30 @@
    #top_nav_box .top_mypage{background-color: purple;}
 
     /* size */
-    /* #top_nav_box .top_logo{width: 100px;}
+    #top_nav_box .top_logo{width: 100px;}
     #top_nav_box .top_category{min-width: 600px; max-width: 700px;}
-    #top_nav_box .top_mypage{width: 150px;} */
+    #top_nav_box .top_mypage{
+      width: 150px;
+      position: absolute;
+      right: 0; bottom: 0;}
 
    /* flex */
     .inner{}
-   #top_nav_box{}
+   #top_nav_box{
+    display: flex;
+    /* 2  */
+    flex-direction: column;
+    /*  5 nowrap */
+    /* 6 */
+    /* 7 정렬 */
+    /* 주축 \ 교차축--> */
+    /* justify-content: flex-start */
+    align-items: center;
+    /*  #top_nav_box .top_mypage{의 기준 */
+    position:relative;
+   }
+   /* 3 grow 0  shrink 1 */
+   /* f auto */
    #top_nav_box .top_logo{}
    #top_nav_box .top_category{}
    #top_nav_box .top_mypage{}
