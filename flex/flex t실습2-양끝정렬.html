@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>flex3 flex container</title>
+  <title>flex실습2-양끝정렬</title>
   <link rel="stylesheet" href="../reset.css">
   <!-- 
   1. flex선언 : container
@@ -21,7 +21,6 @@
    #top_nav_box{background-color: #fcc; box-sizing: border-box;}
    #top_nav_box>div{box-sizing: border-box; padding: 0.5rem;}
    #top_nav_box .top_logo{background-color: beige;}
-   #top_nav_box .top_category{background-color: dodgerblue;}
    #top_nav_box .top_mypage{background-color: purple;}
 
     /* size */
@@ -30,10 +29,29 @@
     #top_nav_box .top_mypage{width: 150px;} */
 
    /* flex */
-    .inner{}
-   #top_nav_box{}
+    .inner{
+      width: 90%;
+      display: flex;
+      margin: 0 auto;}
+   #top_nav_box{
+    width: 100%;
+    /* 1 */
+    display: flex;
+    /* 2 flex-direction:row; */
+    /* 5 flex-wrap: nowrap;*/
+    /* 6 gap->container margin->item */
+    /* 7 정렬 */
+    /* 주축정렬 */
+    justify-content: space-between;
+    /* 교차축정렬 */
+    
+   }
+   #top_nav_box>div{
+    /* 3 확장 flex-grow: 0; */
+    /* 3 축소 flex-shrink: 1; */
+    /* 4 주축의 크기flex-basis: auto; */
+   }
    #top_nav_box .top_logo{}
-   #top_nav_box .top_category{}
    #top_nav_box .top_mypage{}
   </style>
 </head>
@@ -41,7 +59,6 @@
   <div class="inner">
     <div class="top_nav_box" id="top_nav_box">
       <div class="top_logo">로고</div>
-      <div class="top_category">카테고리</div>
       <div class="top_mypage">마이페이지</div>
     </div>
     <!-- //#top_nav_box -->
