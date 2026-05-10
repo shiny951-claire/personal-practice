@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid1-행열갯수지정</title>
+  <link rel="stylesheet" href="../reset.css">
+  <!-- grid
+   1. container에 grid선언
+   2. 행열 줄칸갯수, 크기 정함
+   3. 암시적 그리드 선언(생략가능)
+   4. 아이템배티
+   5. 여백
+   6. 정렬
+   -->
+  <style>
+    /* 모양 */
+    .wrap{margin: 50px;}
+    .grid-container{
+      background-color: #ccc;
+    }
+    .grid-container .item{
+      background-color: dodgerblue}
+    /* grid */
+    .grid-container{
+      display: grid;
+     
+    }
+     .grid-container .item{
+
+     }
+      .grid-container .item:nth-child(1){
+      }
+      .grid-container .item:nth-child(2){
+      }
+      .grid-container .item:nth-child(3){
+      }
+      .grid-container .item:nth-child(4){
+      }
+      .grid-container .item:nth-child(5){
+      }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid-container">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+      <div class="item">item4</div>
+      <div class="item">item5</div>
+      <div class="item">item6</div>
+      <div class="item">item7</div>
+      <div class="item">item8</div>
+
+    </div>
+  </div>
+</body>
+</html>

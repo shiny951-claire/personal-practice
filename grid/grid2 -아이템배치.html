@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>grid2-아이템배치</title>
+  <link rel="stylesheet" href="../reset.css">
+  <!-- grid
+   1. container에 grid선언
+   2. 행열 줄칸갯수, 크기 정함
+   3. 암시적 그리드 선언(생략가능)
+   4. 아이템배티
+   5. 여백
+   6. 정렬
+   -->
+  <style>
+    /* 모양 */
+    .wrap{margin: 50px;}
+    .grid-container{
+      background-color: #ccc;
+
+    }
+    .grid-container .item{
+      background-color: dodgerblue}
+    /* grid */
+    .grid-container{
+      display: grid;
+      grid-template-rows: repeat(3, minmax(100px, auto));
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+     
+    }
+     .grid-container .item{
+
+     }
+      .grid-container .item:nth-child(1){
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-column: 1/3;
+        grid-column: 1/span 2;
+      }
+      .grid-container .item:nth-child(2){
+      }
+      .grid-container .item:nth-child(3){
+      }
+      .grid-container .item:nth-child(4){
+      }
+      .grid-container .item:nth-child(5){
+      }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="grid-container">
+      <div class="item">item1</div>
+      <div class="item">item2</div>
+      <div class="item">item3</div>
+      <div class="item">item4</div>
+      <div class="item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam neque accusantium eveniet sequi quos blanditiis, totam deserunt, alias autem quo molestias quia id ad eos provident similique odio consequatur minima impedit pariatur facilis nihil accusamus tempore eligendi. Earum, optio debitis eos iusto consectetur, commodi neque impedit autem cumque delectus accusantium!</div>
+      <div class="item">item6</div>
+      <div class="item">item7</div>
+      <div class="item">item8</div>
+
+    </div>
+  </div>
+</body>
+</html>
