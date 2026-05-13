@@ -35,11 +35,17 @@
 }
 
   /* swiperjs수정 */
-.swiper {
+.visual-section .swiper {
   width: 100%;
 }
+.visual-section .swiper-horizontal>.swiper-pagination-bullets, 
+.visual-section .swiper-pagination-bullets.swiper-pagination-horizontal, 
+.visual-section .swiper-pagination-custom, 
+.visual-section .swiper-pagination-fraction{
+bottom: 24px;
+}
+
 .visual-section .swiper .swiper-pagination-bullet {
-  
   /* 원 */
   height: 12px;    width: 12px;
   border-radius: 50%;
@@ -60,6 +66,30 @@
 
 }
 
+.visual-section .swiper-button-next,
+.visual-section .swiper-button-prev {
+  color: #fff;
+  /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.4); */
+  padding:1rem 0.5rem;
+  opacity: 0.5;
+  transform: translate(0,-50%);  /* 자기크기의 절반정도 올림 */
+}
+.visual-section .swiper-button-next:hover,
+.visual-section .swiper-button-prev:hover {
+  opacity: 1;
+}
+
+.visual-section .swiper-button-next{
+  left: auto;
+  right:50px;
+}
+.visual-section .swiper-button-prev {
+  left:50px;
+  right:auto;
+}
+.visual-section .swiper-scrollbar.swiper-scrollbar-horizontal{
+  bottom:0px;
+}
 </style>
 </head>
 <body>
@@ -114,10 +144,10 @@
   loop: true,
 
   // autoplay
-   autoplay: {
-        delay: 2500,
-        disableOnInteraction: false,
-      },
+  // autoplay: {
+  //      delay: 2500,
+  //      disableOnInteraction: false,
+  //    },
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',

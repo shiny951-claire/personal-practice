@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper연습2 wconcept</title>
+  <link rel="stylesheet" href="../reset.css">
+  <!-- swiperjs css -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+<!-- swiperjs 스크립설치 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<style>
+  /* 
+  1. .swiper-slide 수평으로 나란하게 보여주고싶음
+    문제
+      1.슬라이드 나머지가 보이지 않음
+      2.swiper-slide
+  2. 1번 슬라이드가 브라우저 왼쪽0이아니라, 기존스킨의너비에 맞춰서 시작했으면함
+    문제
+      1.swiper는 브라우저 전부 사용
+      2.슬라이드 진행 기존 스킨의 너비만큼만
+  3. swiper view 3개 -silde가 보였으면(3단)
+  4. swiper-slide 후손인 img가 swiper-slide의 너비를 따르지않음
+    문제
+      1.swiper-slide>a, swiper-slide>a>img =>inline
+  5. .swiper-slide 사이에 여백
+    swiper에서는 여백을 margin-right로 지정
+  6. 수평스크롤바를 없애햐함
+  7. 페이지네이션의 type:'progressbar'로 변경
+  8. 프로그레스바의 위치를 그림 아래로 변경
+    문제
+      1.동일요소에 top 설정되어있어서 자리를 bottom으로 옮겨야함
+      2.bottom -값 .swiper영역밖으로 나갈 경우 사라지는 문제
+      .visual-section이 overflow: hidden;유지하면서 프로그래스바 표시
+      3.next, prev, play 버튼만큼 프로그레스바 크기 줄임
+  9. next, prev, play 버튼이 프로그레스바 오른쪽으로 오도록
+    문제
+      1. .swiper-button-next', '.swiper-button-prev'버튼이 .swiper-wrapper 자식으로 되어 있어서 개별이동을 해야함
+      2. .swiper-button-next', '.swiper-button-prev'버튼 개별 position:absolute 없애고 자리이동
+  */
+/* 슬라이드 위치확인용 */
+.visual-section .swiper-slide {
+  position: relative;  /* swiper에 기본으로 있음 */
+}
+.visual-section .swiper-slide span{
+  position: absolute;
+  left: 0; top: 0;
+  background-color: #fff;
+}
+/* ↑슬라이드 위치확인용 */
+
+.visual-section{
+  /* .visual-section 후손에 사용될 변수지정 */
+  --swiper-control-position-bottom: -40px;
+  /* 2-문제1해결 */
+  width: 100% !important;
+  max-width: 100% !important;
+  /* 6 문제해결 */
+  overflow: hidden;
+  /* 8-2 자식높이+80px */
+  padding-bottom: 80px;
+}
+.visual-section .swiper-wrapper{
+  /* 5 swiper작동을 위해서는 gap을 지정하지 않고 spaceBetween 속성을 지정 */
+  /* gap: 20px; */
+}
+.visual-section .swiper {
+  /* 1-문제1해결 */
+  overflow: visible;
+  /* 2-문제2해결 */
+  max-width: 1420px;
+  width: 92%;
+}
+.visual-section .swiper-slide {
+  /* 1-문제2해결 */
+  /* width: auto; */
+  /* 3 swiper를 사용하면 slidePerView를 사용함*/
+  /* width: 33.33%; */
+}
+.visual-section .swiper-slide>a {
+  /* 4 */
+  display: block;
+}
+.visual-section .swiper-slide>a>img {
+  /* 4 */
+  display: block;
+  width: 100%;
+}
+/* progressbar */
+.visual-section .swiper-pagination-progressbar {
+  height: var(--swiper-pagination-progressbar-size, 4px);
+  left: 0;
+  /* 8 프로그래스바의 위치를 swiper 아래로 위치 */
+  bottom: var(--swiper-control-position-bottom);
+  /* 8 top:0;을 무력화 */
+  top: auto;
+  width: calc(100% - 120px);
+}
+.visual-section .swiper-pagination-progressbar .swiper-pagination-progressbar-fill{
+  background-color: #000;
+}
+
+/* swiper-button */
+.visual-section .swiper-button{
+  /* 9-2-2 */
+  position: absolute;
+  right: 0;
+  bottom:var(--swiper-control-position-bottom);
+  transform: translate(0,50%);
+}
+.visual-section .swiper-button>div{
+  /* 9-2-1 */
+  /* position:absolute 무력화 */
+  position: static;
+  /* 수평으로 오면서 너비 높이를 지정하고싶어 */
+  display: inline-block;
+  width: 24px; height: 24px;
+  position: relative;
+ 
+}
+.visual-section .swiper-button .swiper-button-prev,
+.visual-section .swiper-button .swiper-button-next{
+  /* width: 24px; height: 24px; */
+   padding-left: 10px;
+  padding-right: 10px;
+  }
+.visual-section .swiper-button .swiper-button-prev::after{
+  content: "";
+  display: block;
+  width: 2px;
+  height: 60%;
+  background-color: #ccc;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+.visual-section .swiper-button .swiper-button-prev>img,
+.visual-section .swiper-button .swiper-button-next>img{
+  width: 100%;
+  display: block;
+}
+.visual-section .swiper-button .swiper-button-next>img{
+  transform: rotate(180deg);
+}
+.visual-section .swiper-button .swiper-button-prev{}
+.visual-section .swiper-button .swiper-button-next{}
+
+</style>
+</head>
+<body>
+  <!-- Slider main container -->
+<div class="section visual-section">
+  <div class="swiper swiper1">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=1">
+          <span>1번 슬라이드</span>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=2">
+          <span>2번 슬라이드</span>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=3">
+          <span>3번 슬라이드</span>
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=4">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=5">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="https://picsum.photos/400/500?random=6">
+        </a>
+      </div>
+  
+  
+    </div>    <!-- //swiper-wrapper -->
+
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- 9-1컨크롤버튼의 위치를 편리하게 잡기 위해서 div로 감쌈 -->
+    <div class="swiper-button">
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev">
+        <img src="images/arrow_back_ios_48dp.png" alt="이전슬라이드로 이동">
+      </div>
+      <div class="swiper-button-next">
+        <img src="images/arrow_back_ios_48dp.png" alt="다음슬라이드로 이동">
+      </div>
+      <!-- play, pause버튼이 올거예요 -->
+       <div>버</div>
+    </div>    <!-- //swiper-button-->
+  
+    <!-- If we need scrollbar -->
+     <!-- 7 프로그래스바 사용으로 스크롤바 사용않기위해-->
+    <!-- <div class="swiper-scrollbar"></div> -->
+
+  </div>  <!--//swiper -->
+</div><!-- //visual-section -->
+
+<!-- swiper 실행 -->
+<script>
+  const swiper1 = new Swiper('.swiper1', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+
+  //현재 슬라이드 swiper안에 가운데
+  //swiper시작할 때 1번 슬라이드 왼쪽에 마지막 슬라이드 넣을 때
+  centeredSlide: true,
+
+  //슬라이드 몇개 보여줄지 결정
+  //3번을 위해 추가한 명령
+  slidesPerView: 3,
+  //5번을 위한 명령
+  //swiper에서는 여백을 margin-right로 지정. js는 단위 넣지 않음
+  spaceBetween: 20,
+
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'progressbar',
+    clickable :true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+    //내가 입력한 img 태그 이미지 사용
+    addIcons:false,
+  },
+
+  // And if we need scrollbar
+  //7 progressbar 사용시 삭제
+  // scrollbar: {
+  //   el: '.swiper-scrollbar',
+  // },
+});
+</script>
+</body>
+</html>
