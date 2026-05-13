@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>swiper연습1</title>
+  <link rel="stylesheet" href="../reset.css">
+  <!-- swiperjs css -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css"
+/>
+
+<!-- swiperjs 스크립설치 -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+
+
+<style>
+  /* .visual-section은 브라우저 전체너비
+  를 사용하려함 
+  메인화면에서 브라우저 전체 너비를 사용할 때 secrtion 요소에 .section_full추가
+  */
+.section_full{
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.visual-section{background-color: #f00;}
+.visual-section .swiper-slide{}
+.visual-section .swiper-slide a{
+  display: block;
+}
+.visual-section .swiper-slide a img{
+  display: block;
+  width: 100%;
+}
+
+  /* swiperjs수정 */
+.swiper {
+  width: 100%;
+}
+.visual-section .swiper .swiper-pagination-bullet {
+  
+  /* 원 */
+  height: 12px;    width: 12px;
+  border-radius: 50%;
+  /* 사각형 */
+  height: 4px;    width: 12px;
+  border-radius: 20%;
+  background-color: #fff;
+    opacity: 0.4;
+    margin-right: 1rem;
+    border: 2px solid #fff;
+}
+.visual-section .swiper .swiper-pagination-bullet-active {
+  background-color: #fff;
+  opacity: 1;
+  /* 사각형 */
+  width: 24px; height: 4px;
+  border-radius: 20%;
+
+}
+
+</style>
+</head>
+<body>
+  <div class="visual-section section_full section">
+  <!-- Slider main container -->
+  <div class="swiper swiper1">
+    <!-- Additional required wrapper -->
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <div class="swiper-slide">
+        <a href="">
+          <img src="images/slide1.png" alt="배너의 설명을 작성해주세요">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="images/slide2.png" alt="배너의 설명을 작성해주세요">
+        </a>
+      </div>
+      <div class="swiper-slide">
+        <a href="">
+          <img src="images/slide3.png" alt="배너의 설명을 작성해주세요">
+        </a>
+      </div>
+     
+  
+    </div>
+    <!-- If we need pagination -->
+    <div class="swiper-pagination"></div>
+  
+    <!-- If we need navigation buttons -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  
+    <!-- If we need scrollbar -->
+    <div class="swiper-scrollbar"></div>
+  </div>
+</div>
+<!-- swiper 실행 -->
+ <!--  const swiper1 = new Swiper('.swiper1', {
+    const swiper1 의 swiper1은 해당페이지에서 유일한 이름이어야함. 안그러면 정상적 가동안됨
+    Swiper('.swiper1'는 문서내 요소 존재 클래스명은 대소문자 구분
+    -->
+
+
+
+<script>
+  const swiper1 = new Swiper('.swiper1', {
+  // Optional parameters
+  direction: 'horizontal',
+  // 무한반복
+  loop: true,
+
+  // autoplay
+   autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+      },
+  // If we need pagination
+  pagination: {
+    el: '.swiper-pagination',
+    clickable :true,
+  },
+
+  // Navigation arrows
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+
+  // And if we need scrollbar
+  scrollbar: {
+    el: '.swiper-scrollbar',
+  },
+});
+</script>
+</body>
+</html>
