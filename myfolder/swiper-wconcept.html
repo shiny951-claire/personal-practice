@@ -282,12 +282,37 @@
     addIcons:false,
   },
 
+  // Autoplay 설정
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+
   // And if we need scrollbar
   //7 progressbar 사용시 삭제
   // scrollbar: {
   //   el: '.swiper-scrollbar',
   // },
 });
+
+// 재생/정지 토글 버튼 기능
+(function() {
+  const playToggleBtn = document.querySelector('.swiper-button-play-toggle');
+
+  playToggleBtn.addEventListener('click', function() {
+    if (this.classList.contains('is-play')) {
+      // 재생 중 → 정지로 변경
+      swiper1.autoplay.stop();
+      this.classList.remove('is-play');
+      this.classList.add('is-pause');
+    } else {
+      // 정지 중 → 재생으로 변경
+      swiper1.autoplay.start();
+      this.classList.remove('is-pause');
+      this.classList.add('is-play');
+    }
+  });
+})();
 </script>
 </body>
 </html>
