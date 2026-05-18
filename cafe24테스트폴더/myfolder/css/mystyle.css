@@ -1,32 +1,58 @@
  /* 테스트 후 삭제 */
  @import url(ub-variables.css);
- .card{
-  background-color: #cff;
-  box-sizing: border-box;
-  border: var(--border);
-  min-height:300px;
-  opacity: 0.5;
+
+ .card {
+   /* background-color: #cff;
+   box-sizing: border-box;
+   border: var(--border);
+   min-height: 300px;
+   opacity: 0.5; */
  }
 
  .dan-section .flex {
-  background-color: #f00;
-  box-sizing: border-box;
-  border: 1px solid #000;
+   /* background-color: #f00;
+   box-sizing: border-box;
+   border: 1px solid #000; */
  }
 
- 
+
  /* 공통 */
- 
+
 
  /* 단배너 css */
  /* 단배너공통 */
  .dan-section {}
 
- 
+ .dan-section .flex>.item {
+   flex: auto;
+ }
+
+
 
  .dan-section .item {
-  /* flex: none; */
-  
+   /* flex: none; */
+
+ }
+
+ /* 
+ 단 썸네일의 크기가달라지는 문제때문에 패딩값 수정 문제 발생
+ */
+ /* .dan-section .item:first-child {
+   padding-left: 0;
+ }
+
+ .dan-section .item:last-child {
+   padding-right: 0;
+ } */
+
+ /* html의flex 컨테이너에게 .gap-으로 지정 */
+ .dan-section .flex .item[class*="col-"] {
+   padding-left: 0;
+   padding-right: 0;
+ }
+
+ .dan-section .item .thumb .xans-smart-banner-admin {
+   margin-bottom: 0;
  }
 
  .dan-section .item .thumb {}
@@ -34,3 +60,8 @@
  .dan-section .item .thumb img {}
 
  .dan-section .item .desc {}
+
+ /* 1024 이하에서
+ 1. dan-section 일렬로 표시하고
+    화면에 모바
+ */
